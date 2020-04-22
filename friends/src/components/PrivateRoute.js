@@ -25,6 +25,7 @@ export default function PrivateRoute ({ component: Component, ...rest }) {
   // default immediate return
   return (
     <>
+    Resolving Authentication...
     </>
     // empty
   )

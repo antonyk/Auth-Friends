@@ -5,8 +5,10 @@ import logo from './logo.svg';
 import './App.css';
 
 import PrivateRoute from './components/PrivateRoute';
-import Friends from './components/Friends'
 import Login from './components/Login'
+import Friends from './components/Friends'
+import FriendDetails from './components/FriendDetails'
+import FriendEdit from './components/FriendEdit'
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
         </header>
         <section>
           <Switch>
+            <PrivateRoute path='/friends/edit/:id' component={FriendEdit} />
+            <PrivateRoute path='/friends/:id' component={FriendDetails} />
             <PrivateRoute path='/friends' component={Friends} />
             <Route path='/login' render={ (routeProps) => (<Login {...routeProps} redirTo='/passedRedir' />) } />
           </Switch>
