@@ -16,17 +16,22 @@ function App() {
           <div>
             <img src={logo} className="App-logo" alt="logo" />
           </div>
-          <div>
+          <div className='header-title'>
             <h3>App Title</h3>
           </div>
-          <div>
-            <Link className='App-link' to='/login'>Login</Link>
+          <div className='header-menu'>
+            <div className='menu-item'>
+              <Link className='App-link' to='/friends'>Friends</Link>
+            </div>
+            <div className='menu-item'>
+              <Link className='App-link' to='/login'>Login</Link>
+            </div>
           </div>
         </header>
         <section>
           <Switch>
             <PrivateRoute path='/friends' component={Friends} />
-            <Route path='/login' component={Login} />
+            <Route path='/login' render={ (routeProps) => (<Login {...routeProps} redirTo='/passedRedir' />) } />
           </Switch>
         </section>
       </div>

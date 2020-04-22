@@ -24,7 +24,26 @@
   color: white;
 }
 
+.header-menu {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  /* border: solid 1px red; */
+
+}
+
+.menu-item {
+  margin: 0 10px;
+  
+}
+
+.header-title {
+  /* border: solid 1px red; */
+}
+
 .App-link {
+  font-size: .9em;
   color: #61dafb;
 }
 
