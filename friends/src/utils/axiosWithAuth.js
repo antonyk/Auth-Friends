@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-
+const url = 'https://auth-friends-api.herokuapp.com'
 
 export default function axiosWithAuth() {
   const token = JSON.parse(localStorage.getItem('token'))
@@ -11,7 +11,7 @@ export default function axiosWithAuth() {
       Authorization: token,
 
     },
-    baseURL: 'http://localhost:5000',
+    baseURL: url,
   })
 
 }
