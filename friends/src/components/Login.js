@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 // import { Redirect } from 'react-router-dom'
 import axiosWithAuth from '../utils/axiosWithAuth'
 
-const defaultRedirect = '/defaultRedir';
+const defaultRedirect = '/friends';
 
 export default function Login(props) {
   // const [username, setUsername] = useState('');
@@ -22,7 +22,7 @@ export default function Login(props) {
     // call auth with login and get token
     axiosWithAuth()
       .post('/api/login', user)
-      .then(res =>{
+      .then(res => {
         // set token to localstorage
         localStorage.setItem('token', JSON.stringify(res.data.payload))
         // redirect
@@ -30,7 +30,7 @@ export default function Login(props) {
         props.history.push(destination);
       })
       .catch(err => {
-        console.log(err)
+        console.log({err})
       })
   }
 

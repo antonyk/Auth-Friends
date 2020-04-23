@@ -4,11 +4,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux'
+import logger from 'redux-logger';
 import { friendsReducer } from './store/reducers'
 
-const store = createStore(friendsReducer);
+const store = createStore(friendsReducer, applyMiddleware(logger));
 
 ReactDOM.render(
   <React.StrictMode>
