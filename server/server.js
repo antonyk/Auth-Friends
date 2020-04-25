@@ -1,7 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const port = 5000;
+require("dotenv").config();
+
+const port = (process.env.PORT || 5000);
 const app = express();
 const token =
   'esfeyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NUIhkufemQifQ';
@@ -60,9 +62,13 @@ function authenticator(req, res, next) {
   }
 }
 
+app.get('/api/auth', authenticator, (req, res) => {
+  res.status(200).json({})
+});
+
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
-  if (username === 'Lambda School' && password === 'i<3Lambd4') {
+  if (username === 'lambda' && password === 'school') {
     req.loggedIn = true;
     res.status(200).json({
       payload: token
@@ -132,3 +138,4 @@ function getNextId() {
 app.listen(port, () => {
   console.log(`server listening on port ${port}`);
 });
+
